@@ -1,5 +1,5 @@
 //
-//  FishLamp-OSX.h
+//  FishLampOSX.h
 //  Downloader
 //
 //  Created by Mike Fullerton on 11/7/13.
