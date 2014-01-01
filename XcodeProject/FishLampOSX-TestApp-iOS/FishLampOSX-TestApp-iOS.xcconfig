@@ -1,0 +1,15 @@
+//
+//  FishLampOSX-TestApp-iOS-ARC.xcconfig
+//  FishLampOSX
+//
+//  Created by Mike Fullerton on 9/9/13.
+//  Copyright (c) 2013 Mike Fullerton. All rights reserved.
+//
+
+#include "XcodeBuildSupportConfigs/TargetSettings/iOS-ARC.xcconfig"
+
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+GCC_PREFIX_HEADER = FishLampOSX-TestApp-iOS/FishLampOSX-TestApp-iOS-Prefix.pch
+
+INFOPLIST_FILE = FishLampOSX-TestApp-iOS/FishLampOSX-TestApp-iOS-Info.plist
+
