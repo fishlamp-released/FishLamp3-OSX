@@ -26,10 +26,10 @@ Pod::Spec.new do |s|
 	s.dependency 'FishLampPrerelease/ColorUtils'
 
 	s.osx.frameworks = 'Cocoa'
-	s.osx.resources = ['FishLampOSX/Resources/Images/*.png', 'FishLampOSX/Resources/xib/*']
+	s.osx.resources = ['Resources/Images/*.png', 'Resources/xib/*']
 	
 	s.subspec 'Core' do |ss|
-		ss.source_files = 'FishLampOSX/Classes/FishLampOSX.h'
+		ss.source_files = 'Classes/FishLampOSX.h'
 	end
 
 	s.subspec 'CommandLineTool' do |ss|
@@ -37,29 +37,29 @@ Pod::Spec.new do |s|
 		ss.dependency 'FishLampPrerelease/CommandLineProcessor'
 		ss.dependency 'FishLampPrerelease/BundleUtils'
 
-		ss.source_files = 'FishLampOSX/Classes/CommandLineTool/**/*.{h,m}'
+		ss.source_files = 'Classes/CommandLineTool/**/*.{h,m}'
 	end
 
 	s.subspec 'ModelObjectDocument' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/ModelObjectDocument/**/*.{h,m}'
+		ss.source_files = 'Classes/ModelObjectDocument/**/*.{h,m}'
 	end
 
 	s.subspec 'Image' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Image/**/*.{h,m}'
+		ss.source_files = 'Classes/Image/**/*.{h,m}'
 	end
 
 	s.subspec 'GlobalMenu' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/GlobalMenu/**/*.{h,m}'
+		ss.source_files = 'Classes/GlobalMenu/**/*.{h,m}'
 	end
 
 	s.subspec 'Utils' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampPrerelease/Notifications'
 
-		ss.source_files = 'FishLampOSX/Classes/Utils/**/*.{h,m}'
+		ss.source_files = 'Classes/Utils/**/*.{h,m}'
 	end
 
 	# views
@@ -68,57 +68,57 @@ Pod::Spec.new do |s|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampPrerelease/Animation'
 
-		ss.source_files = 'FishLampOSX/Classes/Views/FLAnimatedImageView*.{h,m}'
+		ss.source_files = 'Classes/Views/FLAnimatedImageView*.{h,m}'
 	end
 	
 	s.subspec 'ButtonCell' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLButtonCell*.{h,m}'
+		ss.source_files = 'Classes/Views/FLButtonCell*.{h,m}'
 	end
 
 	s.subspec 'ClickableImageView' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLClickableImageView*.{h,m}'
+		ss.source_files = 'Classes/Views/FLClickableImageView*.{h,m}'
 	end
 
 	s.subspec 'CustomButton' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLCustomButton*.{h,m}'
+		ss.source_files = 'Classes/Views/FLCustomButton*.{h,m}'
 	end
 
 	s.subspec 'FramedView' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLFramedView*.{h,m}'
+		ss.source_files = 'Classes/Views/FLFramedView*.{h,m}'
 	end
 
 	s.subspec 'ImagePlaceholderView' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLImagePlaceholderView*.{h,m}'
+		ss.source_files = 'Classes/Views/FLImagePlaceholderView*.{h,m}'
 	end
 
 	s.subspec 'LinkTextField' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLLinkTextField*.{h,m}'
+		ss.source_files = 'Classes/Views/FLLinkTextField*.{h,m}'
 	end
 
 	s.subspec 'MouseTrackingView' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLMouseTrackingView*.{h,m}'
+		ss.source_files = 'Classes/Views/FLMouseTrackingView*.{h,m}'
 	end
 
 	s.subspec 'SpinningProgressView' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/FLSpinningProgressView*.{h,m}'
+		ss.source_files = 'Classes/Views/FLSpinningProgressView*.{h,m}'
 	end
 
 	s.subspec 'TextFieldCell' do |ss|
-		ss.source_files = 'FishLampOSX/Classes/Views/FLTextFieldCell*.{h,m}'
+		ss.source_files = 'Classes/Views/FLTextFieldCell*.{h,m}'
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 	end
 
 	s.subspec 'ViewAdditions' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/Views/NSTextView+*.{h,m}', 'FishLampOSX/Classes/Views/NSView+*.{h,m}'
+		ss.source_files = 'Classes/Views/NSTextView+*.{h,m}', 'Classes/Views/NSView+*.{h,m}'
 	end
 
 	# view controllers
@@ -127,7 +127,7 @@ Pod::Spec.new do |s|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampPrerelease/ActivityLog'
 
-		ss.source_files = 'FishLampOSX/Classes/ViewControllers/FLActivityLogViewController*.{h,m}'
+		ss.source_files = 'Classes/ViewControllers/FLActivityLogViewController*.{h,m}'
 	end
 
 
@@ -135,40 +135,40 @@ Pod::Spec.new do |s|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampOSXPrerelease/Utils'
 
-		ss.source_files = 'FishLampOSX/Classes/ErrorWindowController/**/*.{h,m}'
-		ss.osx.resources = ['FishLampOSX/Classes/ErrorWindowController/**/*.{png,xib}']
+		ss.source_files = 'Classes/ErrorWindowController/**/*.{h,m}'
+		ss.osx.resources = ['Classes/ErrorWindowController/**/*.{png,xib}']
 	end
 
 	s.subspec 'FileDropTableViewController' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
-		ss.source_files = 'FishLampOSX/Classes/ViewControllers/FLFileDropTableViewController*.{h,m}'
+		ss.source_files = 'Classes/ViewControllers/FLFileDropTableViewController*.{h,m}'
 	end
 
 	s.subspec 'TextViewController' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampOSXPrerelease/ViewAdditions'
 
-		ss.source_files = 'FishLampOSX/Classes/ViewControllers/FLTextViewController*.{h,m}'
+		ss.source_files = 'Classes/ViewControllers/FLTextViewController*.{h,m}'
 	end
 
 	s.subspec 'TextViewLogger' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampOSXPrerelease/ViewAdditions'
 
-		ss.source_files = 'FishLampOSX/Classes/ViewControllers/FLTextViewLogger*.{h,m}'
+		ss.source_files = 'Classes/ViewControllers/FLTextViewLogger*.{h,m}'
 	end
 
 	s.subspec 'BreadcrumbBarViewController' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampPrerelease/CoreTextUtils'
 
-		ss.source_files = 'FishLampOSX/Classes/ViewControllers/BreadcrumbBarViewController/**/*.{h,m}'
+		ss.source_files = 'Classes/ViewControllers/BreadcrumbBarViewController/**/*.{h,m}'
 	end
 
 	s.subspec 'Wizard' do |ss|
 		ss.dependency 'FishLampOSXPrerelease/Core'		
 		ss.dependency 'FishLampPrerelease/Animation'
-
+		ss.dependency 'FishLampPrerelease/Containers'
 
 		# TODO (MWF): decouple this
 		ss.dependency 'FishLampPrerelease/Networking/Activity'
@@ -181,8 +181,8 @@ Pod::Spec.new do |s|
 		ss.dependency 'FishLampOSXPrerelease/FramedView'
 		ss.dependency 'FishLampOSXPrerelease/BreadcrumbBarViewController'
 
-		ss.source_files = 'FishLampOSX/Classes/Wizard/**/*.{h,m}'
-		ss.osx.resources = ['FishLampOSX/Classes/Wizard/**/*.{png,xib}']
+		ss.source_files = 'Classes/Wizard/**/*.{h,m}'
+		ss.osx.resources = ['Classes/Wizard/**/*.{png,xib}']
 	end
 end
 

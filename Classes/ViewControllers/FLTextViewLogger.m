@@ -7,6 +7,7 @@
 //
 
 #import "FLTextViewLogger.h"
+#import "FLWhitespace.h"
 
 @interface FLTextViewLogger()
 @property (readwrite, nonatomic, strong) NSMutableAttributedString* buffer;

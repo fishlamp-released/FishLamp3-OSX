@@ -317,7 +317,7 @@
 //            if(touchingstring == string && string.isTouchable) {
 //                if(string.isTouchable) {
 //                    touchingstring.highlighted = isTouching;
-//                    FLAssertWithComment(touchingstring.highlighted == isTouching, @"switch failed");
+//                    FLAssert(touchingstring.highlighted == isTouching, @"switch failed");
 //                    FLLog(@"touched %@", string.text);
 //                }
 //            }

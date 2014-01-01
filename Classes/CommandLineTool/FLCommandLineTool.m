@@ -12,6 +12,8 @@
 #import "NSString+Lists.h"
 #import "NSBundle+FLAdditions.h"
 #import "FishLampAsync.h"
+#import "FLLog.h"
+#import "FLConsoleLogSink.h"
 
 @interface FLCommandLineTool ()
 @property (readwrite, strong, nonatomic) NSURL* toolPath;

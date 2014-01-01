@@ -113,8 +113,8 @@
         self.modalWindow = self.modalWindowController.window;
     }
 
-    FLAssertNotNilWithComment(self.hostWindow, @"host window not set");
-    FLAssertNotNilWithComment(self.modalWindow, @"modal window or modal window controller not set");
+    FLAssertNotNil(self.hostWindow, @"host window not set");
+    FLAssertNotNil(self.modalWindow, @"modal window or modal window controller not set");
 
     [[NSApplication sharedApplication] beginSheet:self.modalWindow
                                    modalForWindow:self.hostWindow
