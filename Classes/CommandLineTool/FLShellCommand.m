@@ -99,18 +99,20 @@
 - (void) finishTask:(NSTask*) task {
 
 #if __MAC_10_8
-    @try {
-        [self.finisher setFinishedWithResult:[self didFinishTask:task]];
-    }
-    @catch(NSException* ex) {
 
-// TODO: convert to an error?    
-    
-        [self.finisher setFinishedWithResult:ex];
-    }
-    @finally {
-        task.terminationHandler = nil;
-    }
+//    @try {
+//        [self.finisher setFinishedWithResult:[self didFinishTask:task]];
+//    }
+//    @catch(NSException* ex) {
+//
+//// TODO: convert to an error?    
+//    
+//        [self.finisher setFinishedWithResult:ex];
+//    }
+//    @finally {
+//        task.terminationHandler = nil;
+//    }
+
 #endif
 }
 
@@ -118,7 +120,7 @@
 
 }
 
-- (void) startOperation {
+- (void) startOperation:(FLFinisher*) finisher {
 
 #if __MAC_10_8
     NSTask* task = FLAutorelease([[NSTask alloc] init]);

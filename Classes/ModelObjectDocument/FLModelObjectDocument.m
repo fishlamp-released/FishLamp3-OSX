@@ -15,6 +15,8 @@
 #import "FLObjectXmlElement.h"
 #import "FLObjectDescriber.h"
 
+#import "FishLampSimpleLogger.h"
+
 @implementation FLModelObjectDocument
 
 @synthesize modelObject = _modelObject;

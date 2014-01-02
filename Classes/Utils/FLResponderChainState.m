@@ -8,9 +8,9 @@
 
 #import "FLResponderChainState.h"
 
-#import "FLLog.h"
 #import "FLPrettyDescription.h"
 #import "FLPrettyString.h"
+#import "FishLampSimpleLogger.h"
 
 @interface FLResponderChainState ()
 @end

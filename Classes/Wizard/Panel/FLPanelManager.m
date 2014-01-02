@@ -12,6 +12,7 @@
 
 #import "FLCompatibility.h"
 #import "FLViewTransition.h"
+#import "FishLampSimpleLogger.h"
 
 @interface FLPanelViewController()
 @property (readwrite, assign, nonatomic, getter=isSelected) BOOL selected;

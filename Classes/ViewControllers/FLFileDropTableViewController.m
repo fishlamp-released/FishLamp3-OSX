@@ -8,6 +8,7 @@
 //
 
 #import "FLFileDropTableViewController.h"
+#import "FishLampSimpleLogger.h"
 
 @interface FLFileDropTableViewController ()
 
