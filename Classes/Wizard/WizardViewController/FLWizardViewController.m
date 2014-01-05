@@ -43,10 +43,16 @@
 
 
 - (void) networkActivityDidStart:(FLNetworkActivity*) networkActivity {
+    FLAssertNotNil(_progressView);
+    FLAssert([NSThread isMainThread]);
+
     [_progressView startAnimation:self];
 }
 
 - (void) networkActivityDidStop:(FLNetworkActivity*) networkActivity {
+    FLAssertNotNil(_progressView);
+    FLAssert([NSThread isMainThread]);
+
     [_progressView stopAnimation:self];
 }
 
@@ -56,7 +62,7 @@
     if(!self.buttonViewController.delegate) {
         self.buttonViewController.delegate = self;
 
-        [[FLGlobalNetworkActivity instance] addListener:self];
+        [[FLGlobalNetworkActivity instance] addForegroundListener:self];
 
         [self addPanelArea:_headerViewController];
         [self addPanelArea:_buttonViewController];

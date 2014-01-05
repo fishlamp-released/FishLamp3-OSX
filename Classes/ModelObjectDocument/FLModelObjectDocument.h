@@ -7,6 +7,8 @@
 //  The FishLamp Framework is released under the MIT License: http://fishlamp.com/license 
 //
 
+#import "FishLampOSX.h"
+
 #import "FLModelObject.h"
 
 @interface FLModelObjectDocument : NSDocument {
