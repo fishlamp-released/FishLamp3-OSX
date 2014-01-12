@@ -1,13 +1,7 @@
-#
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
    
     s.name         = "FishLampOSX"
-    s.version      = "0.2.0"
+    s.version      = "0.0.1"
     s.summary      = "This is the core functionality of the FishLamp Framework."
     s.homepage     = "http://s.com"
     s.license      = 'MIT'
@@ -21,9 +15,9 @@ Pod::Spec.new do |s|
     
 	s.dependency 'FishLampCore'
 
-	s.dependency 'FishLampPrerelease/Compatibility'
-	s.dependency 'FishLampPrerelease/Geometry'
-	s.dependency 'FishLampPrerelease/ColorUtils'
+	s.dependency 'FishLampCompatibility'
+	s.dependency 'FishLampGeometry'
+	s.dependency 'FishLampColorUtils'
 
 	s.osx.frameworks = 'Cocoa'
 	s.osx.resources = ['Resources/Images/*.png', 'Resources/xib/*']
@@ -31,8 +25,8 @@ Pod::Spec.new do |s|
 	s.source_files = 'Classes/*.h'
 
 	s.subspec 'CommandLineTool' do |ss|
-		ss.dependency 'FishLampPrerelease/CommandLineProcessor'
-		ss.dependency 'FishLampPrerelease/BundleUtils'
+		ss.dependency 'FishLampCommandLineProcessor'
+		ss.dependency 'FishLampBundleUtils'
 
 		ss.source_files = 'Classes/CommandLineTool/**/*.{h,m}'
 	end
@@ -50,7 +44,7 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'Utils' do |ss|
-		ss.dependency 'FishLampPrerelease/Notifications'
+		ss.dependency 'FishLampNotifications'
 
 		ss.source_files = 'Classes/Utils/**/*.{h,m}'
 	end
@@ -58,7 +52,7 @@ Pod::Spec.new do |s|
 	# views
 
 	s.subspec 'AnimatedImageView' do |ss|
-		ss.dependency 'FishLampPrerelease/Animation'
+		ss.dependency 'FishLampAnimation'
 
 		ss.source_files = 'Classes/Views/FLAnimatedImageView*.{h,m}'
 	end
@@ -106,7 +100,7 @@ Pod::Spec.new do |s|
 	# view controllers
 
 	s.subspec 'ActivityLogViewController' do |ss|
-		ss.dependency 'FishLampPrerelease/ActivityLog'
+		ss.dependency 'FishLampActivityLog'
 
 		ss.source_files = 'Classes/ViewControllers/FLActivityLogViewController*.{h,m}'
 	end
@@ -136,21 +130,21 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'BreadcrumbBarViewController' do |ss|
-		ss.dependency 'FishLampPrerelease/CoreTextUtils'
+		ss.dependency 'FishLampCoreTextUtils'
 
 		ss.source_files = 'Classes/ViewControllers/BreadcrumbBarViewController/**/*.{h,m}'
 	end
 
 	s.subspec 'Wizard' do |ss|
-		ss.dependency 'FishLampPrerelease/Animation'
-		ss.dependency 'FishLampPrerelease/Containers'
+		ss.dependency 'FishLampAnimation'
+		ss.dependency 'FishLampContainers'
 
 		# TODO (MWF): decouple this
-		ss.dependency 'FishLampPrerelease/Networking/Activity'
+		ss.dependency 'FishLampNetworking/Activity'
 
 		# TODO (MWF): break panels out of here.
-		ss.dependency 'FishLampPrerelease/Authentication'
-		ss.dependency 'FishLampPrerelease/Keychain'
+		ss.dependency 'FishLampAuthentication'
+		ss.dependency 'FishLampKeychain'
 
 		ss.dependency 'FishLampOSX/ViewAdditions'
 		ss.dependency 'FishLampOSX/FramedView'
