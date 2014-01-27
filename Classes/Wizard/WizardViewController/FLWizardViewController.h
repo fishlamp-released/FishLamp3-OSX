@@ -33,5 +33,7 @@
 
 - (void) setLogoImage:(NSImage*) image;
 
+- (BOOL) canShowNextPanelWithIdentifier:(id) identifier;
+
 @end
 

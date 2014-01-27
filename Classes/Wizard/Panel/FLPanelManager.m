@@ -151,18 +151,28 @@
 }
 
 - (void) addPanel:(FLPanelViewController*) panel {
+    FLAssertNotNil(panel);
+
     [self addPanel:panel forIdentifier:[[panel class] panelIdentifier] withDelegate:self];
 }
 
 - (void) addPanel:(FLPanelViewController*) panel withDelegate:(id) delegate {
+    FLAssertNotNil(panel);
+    FLAssertNotNil(delegate);
+
     [self addPanel:panel forIdentifier:[[panel class] panelIdentifier] withDelegate:delegate];
 }
 
 - (void) addPanel:(FLPanelViewController*) panel forIdentifier:(id) identifier withDelegate:(id) delegate {
-    [panel view]; // make sure it's loaded from nib
+
+    FLAssertNotNil(identifier);
+    FLAssertNotNil(panel);
+    FLAssertNotNil(delegate);
 
     panel.identifier = identifier;
     [panel setDelegate:delegate];
+
+    [panel view]; // make sure it's loaded from nib
 
     FLTrace(@"Added Panel: %@ for identifier: %@", [panel description], [identifier description]);
     

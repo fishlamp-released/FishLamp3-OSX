@@ -199,10 +199,10 @@
 - (IBAction) startLogin:(id) sender {
     [self updateNextButton];
 
-    if(self.canOpenNextPanel) {
-        [self.delegate loginPanelDidAuthenticate:self];
-    }
-    else {
+//    if(self.canOpenNextPanel) {
+//        [self.delegate loginPanelDidAuthenticate:self];
+//    }
+//    else {
 
         FLProgressPanel* panel = [FLProgressPanel progressPanel];
         panel.delegate = self;
@@ -216,7 +216,7 @@
                       completion:^{
             [self beginAuthenticating];
         }];
-    }
+//    }
 }
 
 - (IBAction) resetLogin:(id) sender {

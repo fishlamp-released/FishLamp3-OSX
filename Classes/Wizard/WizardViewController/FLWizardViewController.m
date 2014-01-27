@@ -109,8 +109,14 @@
 - (void) wizardButtonViewControllerUpdateButtonStates:(FLWizardButtonViewController*) controller {
     
     BOOL backEnabled = !self.isFirstPanelSelected;
+
+
+//    id selectedIdentifier = [[self selectedPanel] class] panelIdentifier];
+
+//    BOOL nextEnabled = [self canShowNextPanelWithIdentifier:selectedIdentifier] && ![self isLastPanelSelected];
+
     BOOL nextEnabled = [self selectedPanel].canOpenNextPanel && ![self isLastPanelSelected];
-    
+
     if(backEnabled != self.buttonViewController.backButton.isEnabled) {
         self.buttonViewController.backButton.enabled = backEnabled;
     }
@@ -147,6 +153,11 @@
     self.buttonViewController.otherButton.hidden = YES;
     [self.headerViewController setPrompt:toShow.prompt animated:YES];
     [super willShowPanel:toShow];
+}
+
+- (BOOL) canShowNextPanelWithIdentifier:(id) identifier {
+
+    return YES;
 }
 
 @end

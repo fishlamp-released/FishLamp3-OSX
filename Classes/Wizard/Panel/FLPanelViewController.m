@@ -42,14 +42,14 @@
 }
 #endif
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if(self) {
-        [self view]; // force it to load
-    }
-
-    return self;
-}
+//- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if(self) {
+//        [self view]; // force it to load
+//    }
+//
+//    return self;
+//}
 
 - (void) awakeFromNib {
     [super awakeFromNib];

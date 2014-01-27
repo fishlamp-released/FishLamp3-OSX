@@ -12,14 +12,16 @@
 @implementation NSViewController (FLModalAdditions)
 
 - (FLSheetHandler*) showModalWindow:(NSWindowController*) windowController 
-       withDefaultButton:(NSButton*) button {
+                  withDefaultButton:(NSButton*) button
+                   finishedBlock:(FLSheetHandlerBlock) finishedBlock {
     
-    return [self.view.window showModalWindow:windowController withDefaultButton:button];
+    return [self.view.window showModalWindow:windowController withDefaultButton:button finishedBlock:finishedBlock];
 }
 
-- (FLSheetHandler*) showModalWindow:(NSWindowController*) windowController {
+- (FLSheetHandler*) showModalWindow:(NSWindowController*) windowController
+            finishedBlock:(FLSheetHandlerBlock) finishedBlock {
     
-    return [self.view.window showModalWindow:windowController withDefaultButton:nil];
+    return [self.view.window showModalWindow:windowController withDefaultButton:nil finishedBlock:finishedBlock];
 }
 
 @end
@@ -38,7 +40,9 @@
 }
 
 - (FLSheetHandler*) showModalWindow:(NSWindowController*) modalWindow 
-                  withDefaultButton:(NSButton*) button {
+                  withDefaultButton:(NSButton*) button
+                      finishedBlock:(FLSheetHandlerBlock) finishedBlock {
+
 
     FLAssertNotNil(modalWindow);
 
@@ -47,12 +51,14 @@
     handler.defaultButton = button;
     handler.hostWindow = self;
     handler.appModal = YES;
+    handler.finishedBlock = finishedBlock;
     [handler beginSheet];
     return handler;
 }
 
-- (FLSheetHandler*) showModalWindow:(NSWindowController*) modalWindow {
-    return [self showModalWindow:modalWindow withDefaultButton:nil];
+- (FLSheetHandler*) showModalWindow:(NSWindowController*) modalWindow
+                      finishedBlock:(FLSheetHandlerBlock) finishedBlock {
+    return [self showModalWindow:modalWindow withDefaultButton:nil finishedBlock:finishedBlock];
 }
 
 @end
@@ -68,6 +74,7 @@
 @synthesize hostWindow = _hostWindow;
 @synthesize appModal = _appModal;
 @synthesize defaultButton = _defaultButton;
+@synthesize finishedBlock = _finishedBlock;
 
 + (id) sheetHandler {
     return FLAutorelease([[[self class] alloc] init]);
@@ -75,6 +82,7 @@
 
 #if FL_MRC
 - (void) dealloc {
+    [_finishedBlock release];
     [_modalWindow release];
     [_modalWindowController release];
     [_hostWindow release];
@@ -97,6 +105,11 @@
     self.modalWindow = nil;
     self.modalWindowController = nil;
     self.modalSession = nil;
+
+    if(self.finishedBlock) {
+        self.finishedBlock();
+        self.finishedBlock = nil;
+    }
 }
 
 - (void) sheetDidEnd:(NSWindow*) sheet 

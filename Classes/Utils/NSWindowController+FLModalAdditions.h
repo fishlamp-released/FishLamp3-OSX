@@ -8,6 +8,8 @@
 //
 #import "FishLampOSX.h"
 
+typedef void (^FLSheetHandlerBlock)();
+
 @interface FLSheetHandler : NSResponder {
 @private
     NSModalSession _modalSession;
@@ -22,6 +24,7 @@
 @property (readwrite, strong, nonatomic) NSWindowController* modalWindowController;
 @property (readwrite, strong, nonatomic) NSButton* defaultButton;
 @property (readwrite, assign, nonatomic) BOOL appModal;
+@property (readwrite, copy, nonatomic) FLSheetHandlerBlock finishedBlock;
 
 + (id) sheetHandler;
 
@@ -31,19 +34,25 @@
 
 @interface NSViewController (FLModalAdditions)
 
-- (FLSheetHandler*) showModalWindow:(NSWindowController*) window 
-       withDefaultButton:(NSButton*) button;
+- (FLSheetHandler*) showModalWindow:(NSWindowController*) window
+                  withDefaultButton:(NSButton*) button
+                      finishedBlock:(FLSheetHandlerBlock) finishedBlock;
 
-- (FLSheetHandler*) showModalWindow:(NSWindowController*) windowController;
+- (FLSheetHandler*) showModalWindow:(NSWindowController*) windowController
+                      finishedBlock:(FLSheetHandlerBlock) finishedBlock;
+
 @end
 
 @interface NSWindow (FLModalAdditions)
+
 - (IBAction) closeModalWindow:(id) sender;
 
 - (FLSheetHandler*) showModalWindow:(NSWindowController*) modalWindow 
-            withDefaultButton:(NSButton*) button;
+                  withDefaultButton:(NSButton*) button
+                      finishedBlock:(FLSheetHandlerBlock) finishedBlock;
 
-- (FLSheetHandler*) showModalWindow:(NSWindowController*) modalWindow;
+- (FLSheetHandler*) showModalWindow:(NSWindowController*) modalWindow
+                      finishedBlock:(FLSheetHandlerBlock) finishedBlock;
 
 #if DEBUG
 - (NSString*) stringFromResponderChain;
