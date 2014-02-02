@@ -17,19 +17,25 @@
 
 @synthesize activityLog = _activityLog;
 
-- (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (id) init {	
+	self = [super init];
+	if(self) {
+		
+	}
+	return self;
+}
 
+- (void) dealloc {
 #if FL_MRC
-    [_queue release];
     [_activityLog release];
+    [_queue release];
     [super dealloc];
 #endif
 }
 
 - (void) update {
 
-    if(self.activityLog && _queue) {
+    if(_queue) {
         [self.logger appendString:_queue];
         [self.textView scrollRangeToVisible:NSMakeRange([[self.textView string] length], 0)];
         FLReleaseWithNil(_queue);
@@ -38,9 +44,8 @@
     _lastUpdate = [NSDate timeIntervalSinceReferenceDate];
 }
 
-- (void) logWasUpdated:(NSNotification*) note {
-
-    NSAttributedString* string = [[note userInfo] objectForKey:FLActivityLogStringKey];
+- (void) activityLog:(FLActivityLog*) activityLog
+     didAppendString:(NSAttributedString*) string {
 
     if(string) {
 
@@ -61,20 +66,26 @@
     }
 }
 
+- (void) activityLogClearActivity:(FLActivityLog*) activityLog {
+    [self.logger clearContents];
+}
 
 - (void) setActivityLog:(FLActivityLog*) log {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+
+    if(_activityLog) {
+        [_activityLog.events removeListener:self];
+    }
+
     FLSetObjectWithRetain(_activityLog, log);
-    [[NSNotificationCenter defaultCenter] addObserver:self  
-                                             selector:@selector(logWasUpdated:) 
-                                                 name:FLActivityLogUpdated 
-                                               object:[self activityLog]];
+
+    [self.activityLog.events addListener:self];
 
     [self.logger clearContents];
 
     // don't think we need this...???
     [self setLinkAttributes];
+
+    [self activityLog:self.activityLog didAppendString:[self.activityLog formattedAttributedString]];
 }
 
 - (void) awakeFromNib {

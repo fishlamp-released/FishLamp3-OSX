@@ -27,6 +27,8 @@ FLSynthesizeLazyGetterWithBlock(logger, FLTextViewLogger*, _logger, ^{ return [F
 - (void) awakeFromNib {
 	[super awakeFromNib];
     FLAssertNotNil(_textView);
+
+    [self setLinkAttributes];
 }
 
 #if FL_MRC
