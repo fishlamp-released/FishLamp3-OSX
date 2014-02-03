@@ -78,7 +78,7 @@
 
     FLSetObjectWithRetain(_activityLog, log);
 
-    [self.activityLog.events addListener:self];
+    [self.activityLog.events addListener:self sendEventsOnMainThread:NO];
 
     [self.logger clearContents];
 

@@ -111,10 +111,10 @@
 //}
 
 - (void) clearContents {
-    [self queueBlock:^{
-        [[_textView textStorage] deleteCharactersInRange:NSMakeRange(0, [_textView textStorage].length) ];
-        self.buffer = nil;
-    }];
+    FLAssertNotNil(_textView);
+
+    [[_textView textStorage] deleteCharactersInRange:NSMakeRange(0, [_textView textStorage].length) ];
+    self.buffer = nil;
 }
 
 - (void) whitespaceStringFormatter:(FLWhitespaceStringFormatter*) stringFormatter

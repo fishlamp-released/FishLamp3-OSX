@@ -62,7 +62,7 @@
     if(!self.buttonViewController.delegate) {
         self.buttonViewController.delegate = self;
 
-        [[FLGlobalNetworkActivity instance] addListener:self];
+        [[FLGlobalNetworkActivity instance] addListener:self sendEventsOnMainThread:YES];
 
         [self addPanelArea:_headerViewController];
         [self addPanelArea:_buttonViewController];
