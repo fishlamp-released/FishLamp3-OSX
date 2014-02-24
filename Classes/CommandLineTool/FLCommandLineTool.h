@@ -59,5 +59,5 @@
 
 
 
-#define FLToolLog(__FORMAT__, ...) \
-            [[[FLCommandLineTool sharedTool] output] appendLineWithFormat:__FORMAT__, ##__VA_ARGS__]
+#define FLToolLog(FORMAT, ...) \
+            [[[FLCommandLineTool sharedTool] output] appendLineWithFormat:FORMAT, ##__VA_ARGS__]

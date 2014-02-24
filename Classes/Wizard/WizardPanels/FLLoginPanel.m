@@ -92,7 +92,7 @@
 
 - (void) updateNextButton {
     _loginButton.enabled = self.canLogin;
-    self.canOpenNextPanel = _loginButton.isEnabled;
+    self.canOpenNextPanel = _loginButton.isEnabled && [[self.authenticationHandler authenticatedEntity] isAuthenticated];
 }
 
 - (FLAuthenticationCredentials*) currentCredentials {
@@ -235,11 +235,6 @@
     [self.authenticationHandler setShouldSavePassword:self.savePasswordInKeychain];
 }
 
-//- (void) applicationWillTerminate:(id)sender {
-//    [self updateCredentialsEditor];
-//    [self.credentialsEditor stopEditing];
-//}
-
 - (void) respondToNextButton:(BOOL*) handledIt {
     if(self.canLogin) {
         [self updateCredentials];
@@ -253,11 +248,6 @@
     [super panelDidAppear];
     [self updateNextButton];
     [self setNextResponderIfNeeded];
-
-//    [[NSNotificationCenter defaultCenter] addObserver: self
-//                                             selector: @selector(applicationWillTerminate:)
-//                                                 name: NSApplicationWillTerminateNotification
-//                                               object: [NSApplication sharedApplication]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidUpdate:)
         name:NSWindowDidUpdateNotification object:nil];

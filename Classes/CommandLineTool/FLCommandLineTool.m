@@ -64,9 +64,13 @@ static id s_instance;
     
         _implementation = imp;
    //     [FLAppInfo setAppInfo:self.toolIdentifier appName:self.toolName version:self.toolVersion];
-    
+
+
+        FLLogSinkBehavior* behavior = [FLLogSinkBehavior logSinkBehavior];
+
+
         self.output = [FLLogger logger];
-        [self.output addLoggerSink:[FLConsoleLogSink consoleLogSink:FLLogOutputSimple]];
+        [self.output addLoggerSink:[FLConsoleLogSink consoleLogSink:behavior]];
     }
     
     return self;

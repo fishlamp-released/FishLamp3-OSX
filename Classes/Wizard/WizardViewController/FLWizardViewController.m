@@ -110,11 +110,6 @@
     
     BOOL backEnabled = !self.isFirstPanelSelected;
 
-
-//    id selectedIdentifier = [[self selectedPanel] class] panelIdentifier];
-
-//    BOOL nextEnabled = [self canShowNextPanelWithIdentifier:selectedIdentifier] && ![self isLastPanelSelected];
-
     BOOL nextEnabled = [self selectedPanel].canOpenNextPanel && ![self isLastPanelSelected];
 
     if(backEnabled != self.buttonViewController.backButton.isEnabled) {
