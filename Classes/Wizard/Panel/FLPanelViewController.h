@@ -81,6 +81,8 @@
 - (void) panelWillDisappear;
 - (void) panelDidDisappear;
 
+- (void) applicationWillTerminate;
+
 - (void) respondToNextButton:(BOOL*) handledIt;
 - (void) respondToBackButton:(BOOL*) handledIt;
 - (void) respondToOtherButton:(BOOL*) handledIt;
@@ -90,15 +92,6 @@
 - (void) addPanelView:(NSView*) panelView toPanelArea:(id<FLPanelArea>) panelArea animated:(BOOL) animated;
 
 - (void) updateState:(id) state;
-
-//- (void) showAlertWithError:(NSError*) error; 
-//- (void) showAlertWithError:(NSError*) error withTitle:(NSString*) title;
-//- (void) showAlertWithError:(NSError*) error withTitle:(NSString*) title withCaption:(NSString*) caption;
- 
-//- (void) didHideAlertWithError:(NSError*) error;
-
-//- (void) showAlertWithTitle:(NSString*) title;
-//- (void) showAlertWithTitle:(NSString*) title withCaption:(NSString*) caption;
 
 + (id) panelIdentifier;
 

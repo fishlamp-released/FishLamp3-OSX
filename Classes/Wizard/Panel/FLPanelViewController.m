@@ -31,16 +31,17 @@
 @synthesize selected = _selected;
 
 
-#if FL_MRC
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+#if FL_MRC
     [_alertViewController release];
     [_identifier release];
     [_header release];
     [_buttons release];
     [_prompt release];
     [super dealloc];
-}
 #endif
+}
 
 //- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 //    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -85,10 +86,19 @@
 - (void) panelWillAppear {
 }
 
+- (void) applicationWillTerminate {
+}
+
+- (void) appWillTerminate:(id) note {
+    [self applicationWillTerminate];
+}
+
 - (void) panelDidAppear {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillTerminate:) name:NSApplicationWillTerminateNotification object:nil];
 }
 
 - (void) panelWillDisappear {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationWillTerminateNotification object:nil];
 }
 
 - (void) panelDidDisappear {
