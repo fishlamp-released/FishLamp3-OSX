@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
    
     s.name         = "FishLampOSX"
-    s.version      = "0.0.1"
+    s.version      = "0.0.2"
     s.summary      = "This is the core functionality of the FishLamp Framework."
     s.homepage     = "http://s.com"
     s.license      = 'MIT'
@@ -13,20 +13,22 @@ Pod::Spec.new do |s|
 
     s.requires_arc = false
     
-	s.dependency 'FishLampCore'
+	s.dependency 'FishLamp/Core'
 
-	s.dependency 'FishLampCompatibility'
-	s.dependency 'FishLampGeometry'
-	s.dependency 'FishLampColorUtils'
+	s.dependency 'FishLampUI/Compatibility'
+	s.dependency 'FishLampUI/Geometry'
+	s.dependency 'FishLampUI/ColorUtils'
 
 	s.osx.frameworks = 'Cocoa'
 	s.osx.resources = ['Resources/Images/*.png', 'Resources/xib/*']
 	
 	s.source_files = 'Classes/*.h'
 
+	s.default_subspec = 'All'
+
 	s.subspec 'CommandLineTool' do |ss|
-		ss.dependency 'FishLampCommandLineProcessor'
-		ss.dependency 'FishLampBundleUtils'
+		ss.dependency 'FishLamp/CommandLineProcessor'
+		ss.dependency 'FishLamp/BundleUtils'
 
 		ss.source_files = 'Classes/CommandLineTool/**/*.{h,m}'
 	end
@@ -44,7 +46,7 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'Utils' do |ss|
-		ss.dependency 'FishLampNotifications'
+		ss.dependency 'FishLampUI/Notifications'
 
 		ss.source_files = 'Classes/Utils/**/*.{h,m}'
 	end
@@ -52,7 +54,7 @@ Pod::Spec.new do |s|
 	# views
 
 	s.subspec 'AnimatedImageView' do |ss|
-		ss.dependency 'FishLampAnimation'
+		ss.dependency 'FishLampUI/Animation'
 
 		ss.source_files = 'Classes/Views/FLAnimatedImageView*.{h,m}'
 	end
@@ -100,15 +102,12 @@ Pod::Spec.new do |s|
 	# view controllers
 
 	s.subspec 'ActivityLogViewController' do |ss|
-		ss.dependency 'FishLampActivityLog'
-
+		ss.dependency 'FishLampUI/ActivityLog'
 		ss.source_files = 'Classes/ViewControllers/FLActivityLogViewController*.{h,m}'
 	end
 
-
 	s.subspec 'ErrorWindowController' do |ss|
 		ss.dependency 'FishLampOSX/Utils'
-
 		ss.source_files = 'Classes/ErrorWindowController/**/*.{h,m}'
 		ss.osx.resources = ['Classes/ErrorWindowController/**/*.{png,xib}']
 	end
@@ -130,21 +129,21 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'BreadcrumbBarViewController' do |ss|
-		ss.dependency 'FishLampCoreTextUtils'
+		ss.dependency 'FishLampUI/CoreTextUtils'
 
 		ss.source_files = 'Classes/ViewControllers/BreadcrumbBarViewController/**/*.{h,m}'
 	end
 
 	s.subspec 'Wizard' do |ss|
-		ss.dependency 'FishLampAnimation'
-		ss.dependency 'FishLampContainers'
+		ss.dependency 'FishLampUI/Animation'
+		ss.dependency 'FishLamp/Containers'
 
 		# TODO (MWF): decouple this
-		ss.dependency 'FishLampNetworking/Activity'
+		ss.dependency 'FishLamp/Networking/Activity'
 
 		# TODO (MWF): break panels out of here.
-		ss.dependency 'FishLampAuthentication'
-		ss.dependency 'FishLampKeychain'
+		ss.dependency 'FishLamp/Networking/Authentication'
+		ss.dependency 'FishLamp/Keychain'
 
 		ss.dependency 'FishLampOSX/ViewAdditions'
 		ss.dependency 'FishLampOSX/FramedView'
@@ -154,8 +153,24 @@ Pod::Spec.new do |s|
 		ss.osx.resources = ['Classes/Wizard/**/*.{png,xib}']
 	end
 
-    
+	s.subspec 'All' do |ss|
+		ss.dependency 'FishLampOSX/ViewAdditions'
+		ss.dependency 'FishLampOSX/FramedView'
+		ss.dependency 'FishLampOSX/BreadcrumbBarViewController'
+		ss.dependency 'FishLampOSX/Wizard'
+		ss.dependency 'FishLampOSX/TextViewController'
+		ss.dependency 'FishLampOSX/FileDropTableViewController'
+		ss.dependency 'FishLampOSX/ErrorWindowController'
+		ss.dependency 'FishLampOSX/ActivityLogViewController'
+		ss.dependency 'FishLampOSX/ViewAdditions'
+		ss.dependency 'FishLampOSX/TextFieldCell'
+		ss.dependency 'FishLampOSX/SpinningProgressView'
+		ss.dependency 'FishLampOSX/MouseTrackingView'
+		ss.dependency 'FishLampOSX/LinkTextField'
+		ss.dependency 'FishLampOSX/ImagePlaceholderView'
+		ss.dependency 'FishLampOSX/CommandLineTool'
 
+	end
 
 
     
