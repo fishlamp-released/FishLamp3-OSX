@@ -14,10 +14,7 @@ Pod::Spec.new do |s|
     s.requires_arc = false
     
 	s.dependency 'FishLamp/Core'
-
-	s.dependency 'FishLampUI/Compatibility'
-	s.dependency 'FishLampUI/Geometry'
-	s.dependency 'FishLampUI/ColorUtils'
+	s.dependency 'FishLampUI/Core'
 
 	s.osx.frameworks = 'Cocoa'
 	s.osx.resources = ['Resources/Images/*.png', 'Resources/xib/*']
