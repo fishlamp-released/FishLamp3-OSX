@@ -99,7 +99,7 @@ return;
     FLPrettyString* prettyString = [FLPrettyString prettyString];
     id firstResponder = [self firstResponder];
     while(firstResponder) {
-        [prettyString appendLine:[firstResponder description]];
+        [prettyString appendLineWithFormat:@"%@, %@", NSStringFromClass([firstResponder class]), [firstResponder description]];
         firstResponder = [firstResponder nextResponder];
     }
     return prettyString.string;
@@ -112,7 +112,7 @@ return;
     FLPrettyString* prettyString = [FLPrettyString prettyString];
     id firstResponder = self;
     while(firstResponder) {
-        [prettyString appendLine:[firstResponder description]];
+        [prettyString appendLineWithFormat:@"%@, %@", NSStringFromClass([firstResponder class]), [firstResponder description]];
         firstResponder = [firstResponder nextResponder];
     }
     return prettyString.string;

@@ -8,8 +8,9 @@ Pod::Spec.new do |s|
     s.author       = { "Mike Fullerton" => "hello@fishlamp.com" }
     s.source       = { :git => "https://github.com/fishlamp/FishLampPrerelease.git", :tag => s.version.to_s }
 
-    s.osx.deployment_target = '10.6'
-    s.osx.frameworks = 'CoreServices', 'Security', 'SystemConfiguration', 'ApplicationServices', 'Quartz', 'QuartzCore', 'CoreFoundation',  'Foundation'
+    s.osx.deployment_target = '10.8'
+
+    s.osx.frameworks = 'AppKit'
 
     s.requires_arc = false
     
