@@ -208,7 +208,7 @@
     [NSGraphicsContext restoreGraphicsState];
 
 #if TRACE
-    FLLog(@"draw title: %@", _localizedTitle);
+    FLDebugLog(@"draw title: %@", _localizedTitle);
 #endif    
 }
 

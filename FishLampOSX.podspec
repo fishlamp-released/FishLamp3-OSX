@@ -151,6 +151,12 @@ Pod::Spec.new do |s|
 		ss.source_files = 'Classes/Wizard/**/*.{h,m}'
 		ss.osx.resources = ['Classes/Wizard/**/*.{png,xib}']
 	end
+    
+    s.subspec 'Testables' do |ss|
+        ss.dependency 'FishLamp/Testables'
+        ss.source_files = 'Classes/Testables/**/*.{h,m}'
+        ss.resources = ['Classes/Testables/**/*.{png,xib}']
+    end
 
 	s.subspec 'All' do |ss|
 		ss.dependency 'FishLampOSX/Documents'
@@ -162,6 +168,7 @@ Pod::Spec.new do |s|
 
 		ss.dependency 'FishLampOSX/Wizard'
         
+		ss.dependency 'FishLampOSX/Testables'
 	end
 
 

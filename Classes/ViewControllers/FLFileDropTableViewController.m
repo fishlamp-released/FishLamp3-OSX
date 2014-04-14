@@ -69,7 +69,7 @@
 
 #if DEBUG
     if(!isAcceptable) {
-        FLLog(@"rejected %@", [url description]);
+        FLDebugLog(@"rejected %@", [url description]);
     }
 #endif    
 

@@ -131,7 +131,7 @@
         panel.view.frame = NSRectOptimizedForViewLocation(frame);
     }
     
-//    FLLog(@"panel frame view %@", NSStringFromRect(panel.view.frame));
+//    FLDebugLog(@"panel frame view %@", NSStringFromRect(panel.view.frame));
 
 }
 
@@ -143,7 +143,7 @@
     if(FLStringsAreEqual(keyPath, @"frame")) {
         [self setPanelFrame:self.selectedPanel];
         
-//        FLLog(@"wizard view %@, encl view: %@, content view: %@", NSStringFromRect(self.view.frame), NSStringFromRect(_contentEnclosure.frame), NSStringFromRect(_contentView.frame));
+//        FLDebugLog(@"wizard view %@, encl view: %@, content view: %@", NSStringFromRect(self.view.frame), NSStringFromRect(_contentEnclosure.frame), NSStringFromRect(_contentView.frame));
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

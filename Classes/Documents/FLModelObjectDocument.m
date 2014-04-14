@@ -42,11 +42,11 @@
 }
 
  - (void)document:(NSDocument *)document didSave:(BOOL)didSaveSuccessfully contextInfo:(void *)contextInfo {
-    FLLog(@"%@ did save document", NSStringFromClass([self class]));
+    FLDebugLog(@"%@ did save document", NSStringFromClass([self class]));
  }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    FLLog(@"%@ keyPath changed", keyPath);
+    FLDebugLog(@"%@ keyPath changed", keyPath);
     
     if(self.fileURL) {
         dispatch_async(dispatch_get_main_queue(), ^{

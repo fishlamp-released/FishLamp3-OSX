@@ -56,7 +56,7 @@
     }
 
     if([window makeFirstResponder:responder]) {
-        FLLog(@"window refused to set responder");
+        FLDebugLog(@"window refused to set responder");
     }
 
 return;
@@ -67,7 +67,7 @@ return;
                 [self restoreResponder:responder withWindow:window];
             }
             else {
-                FLLog(@"Unabled to set first responder %@ in %@", [responder description], [_window description])
+                FLDebugLog(@"Unable to set first responder %@ in %@", [responder description], [_window description])
             }
         }
 
