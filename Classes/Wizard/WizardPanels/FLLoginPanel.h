@@ -13,6 +13,7 @@
 #import "FLProgressPanel.h"
 #import "FLAuthenticationCredentials.h"
 #import "FishLampAsync.h"
+#import "FLLinkTextField.h"
 
 @protocol FLLoginPanelDelegate;
 @protocol FLAuthenticationHandler;
@@ -22,7 +23,7 @@
     IBOutlet NSTextField* _userNameTextField;
     IBOutlet NSSecureTextField* _passwordEntryField;
     IBOutlet NSButton* _savePasswordCheckBox;
-    IBOutlet NSButton* _forgotPasswordButton;
+    IBOutlet FLLinkTextField* _forgotPasswordButton;
     IBOutlet NSButton* _loginButton;
     id<FLAuthenticationHandler> _authenticationHandler;
 }

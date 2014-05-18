@@ -78,7 +78,8 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
+    [_explanationField.textStorage deleteCharactersInRange:NSMakeRange(0, _explanationField.textStorage.length)];
+
     _titleField.stringValue = _title;
     if(FLStringIsNotEmpty(_explanation)) {
         [_explanationField.textStorage appendAttributedString:FLAutorelease([[NSAttributedString alloc] initWithString:_explanation]) ];
