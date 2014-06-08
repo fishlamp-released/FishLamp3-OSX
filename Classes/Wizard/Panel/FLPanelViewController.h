@@ -39,7 +39,7 @@
 @private
     NSString* _prompt;
     BOOL _canOpenNextPanel;
-    __unsafe_unretained FLPanelManager* _panelManager;
+    FL_WEAK FLPanelManager* _panelManager;
     id<FLPanelButtons> _buttons;
     id<FLPanelHeader> _header;
     BOOL _panelFillsView;
@@ -50,7 +50,7 @@
     BOOL _selected;
     
     id _identifier;
-    __unsafe_unretained id _delegate;
+    FL_WEAK id _delegate;
 
     id _alertViewController;
 }

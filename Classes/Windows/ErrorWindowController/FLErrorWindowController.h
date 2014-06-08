@@ -13,7 +13,7 @@
 @private
     IBOutlet NSTextField* _titleField;
     IBOutlet NSTextView* _explanationField;
-    IBOutlet __unsafe_unretained NSButton* _okButton;
+    IBOutlet FL_WEAK NSButton* _okButton;
     NSString* _title;
     NSString* _explanation;
 

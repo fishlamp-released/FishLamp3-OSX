@@ -23,7 +23,7 @@
     NSMutableArray* _titles;
     FLBarHighlightBackgoundLayer* _highlightLayer;
     CGFloat _titleTop;
-    __unsafe_unretained id<FLBreadcrumbBarViewDelegate> _delegate;
+    FL_WEAK id<FLBreadcrumbBarViewDelegate> _delegate;
 }
 @property (readonly, strong, nonatomic) NSArray* titles;
 @property (readonly, strong, nonatomic) FLBarHighlightBackgoundLayer* highlightLayer;

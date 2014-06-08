@@ -16,7 +16,7 @@
 
 @interface FLBreadcrumbBarViewController : NSViewController<FLBreadcrumbBarViewDelegate> {
 @private
-    __unsafe_unretained id<FLBreadcrumbBarViewControllerDelegate> _delegate;
+    FL_WEAK id<FLBreadcrumbBarViewControllerDelegate> _delegate;
 }
 
 @property (readwrite,assign,nonatomic) id<FLBreadcrumbBarViewControllerDelegate> delegate;

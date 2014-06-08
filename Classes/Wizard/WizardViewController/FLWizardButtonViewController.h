@@ -18,7 +18,7 @@
     IBOutlet NSButton* _otherButton;
     IBOutlet NSView* _contentView;
     
-    __unsafe_unretained id<FLWizardButtonViewControllerDelegate> _delegate;
+    FL_WEAK id<FLWizardButtonViewControllerDelegate> _delegate;
 }
 @property (readwrite, assign, nonatomic) id<FLWizardButtonViewControllerDelegate> delegate;
 @property (readonly, strong, nonatomic) NSButton* nextButton;

@@ -13,7 +13,7 @@
 
 @interface FLFileDropTableViewController : NSViewController {
 @private
-    IBOutlet __unsafe_unretained NSTableView* _tableView;
+    IBOutlet FL_WEAK NSTableView* _tableView;
     
     NSMutableArray* _urls;
 }
