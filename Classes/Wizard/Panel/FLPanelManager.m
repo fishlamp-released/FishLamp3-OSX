@@ -440,6 +440,8 @@
             if(completion) {
               completion(toShow);
             }
+
+            [self.view setNeedsDisplay:YES];
         }];
     }
     else {
