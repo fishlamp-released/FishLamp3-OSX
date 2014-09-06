@@ -14,6 +14,7 @@
     BOOL _mouseDown;
     BOOL _mouseIn;
     NSTrackingRectTag _boundsTrackingTag;
+    NSTrackingArea* _trackingArea;
 }
 
 @end

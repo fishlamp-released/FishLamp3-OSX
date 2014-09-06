@@ -18,6 +18,7 @@ typedef void (^FLSheetHandlerBlock)();
     NSWindowController* _modalWindowController;
     BOOL _appModal;
     NSButton* _defaultButton;
+    FLSheetHandlerBlock _finishedBlock;
 }
 @property (readwrite, strong, nonatomic) NSWindow* modalWindow;
 @property (readwrite, strong, nonatomic) NSWindow* hostWindow;
