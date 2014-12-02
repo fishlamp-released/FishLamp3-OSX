@@ -39,6 +39,11 @@
     self.title = NSLocalizedString(@"Login", nil);
     self.prompt =  NSLocalizedString(@"Login to your account", nil);
     self.panelFillsView = NO;
+
+// APPLE DOESN'T LIKE THE RESET PW LINK
+// TODO: fix this
+
+    _forgotPasswordButton.hidden = YES;
 }
 
 + (id) loginPanel {
